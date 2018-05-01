@@ -1,0 +1,122 @@
+<head>
+
+</head>
+
+<body>
+    {% include "header.html" %}
+
+    <div class="container">
+        <h1>
+            {{item.name}}
+        </h1>
+        <h3>
+            Description:
+        </h3>
+
+        <div>
+            {{item.description}}
+
+        </div>
+
+        <div class="row2">
+            <div class='button_div'>
+                <a href="{{url_for('showCategory',category_id=item.category_id)}}">
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Return To Category
+                    </button>
+                </a>
+            </div>
+            <div class='button_div'>
+                <a href="{{url_for('editItem',category_id=item.category_id,item_id=item.id)}}">
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Edit Item
+                    </button>
+                </a>
+            </div>
+            <div class='button_div'>
+                <a href="{{url_for('deleteItem',Item_id=item.id)}}">
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Delete Item
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
+    .row2{
+        margin-top:3%;  
+    }
+
+    .button_div{
+
+        display: inline-block;
+    }
+    h1 {
+        font-weight: 200;
+
+        text-align: left;
+        color: #009CFF;
+    }
+
+    h3 {
+        font-weight: 200;
+
+        text-align: left;
+        color: #009CFF;
+    }
+
+    .container {
+        margin-top: 5%;
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.48);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.48);
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.48);
+        padding: 3%;
+        border-radius: 20px;
+    }
+
+    .categories_container {
+        vertical-align: top;
+        display: inline-block;
+        width: 25%;
+        border-right-width: 2px;
+        border-right-color: #009CFF;
+        border-right-style: solid;
+    }
+
+    .latest_items_container {
+        width: 65%;
+        display: inline-block;
+        padding-left: 5%;
+    }
+
+    .btn {
+        margin-top: 1%;
+        background-color: #009CFF;
+        border-radius: 10px;
+        height: 50px;
+        width: 140px;
+        font-size: 13px;
+        color: white;
+        border: none;
+    }
+
+    .btn:hover {
+        background: rgb(235, 154, 3);
+        transition: ease-in;
+        transition-duration: .2s;
+    }
+</style>

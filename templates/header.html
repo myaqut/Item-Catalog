@@ -1,0 +1,90 @@
+<div class="top-menu">
+	<div class="title">
+		<a class='links' href="{{url_for('showCataglog')}}" style="text-decoration:none">
+			<h1 style="color:white">
+				Catalog App
+			</h1>
+		</a>
+	</div>
+	<div class="text-right">
+		{%if 'username' not in session %}
+		<button class='button' onclick="window.location.href='/login'">
+			Login Here
+		</button>
+		{%else%}
+
+		<button class='button' onclick="window.location.href='/gdisconnect'">
+			Logout Here
+		</button>
+
+
+		{% endif %}
+
+	</div>
+	<div class="logged_in">
+		{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+		<strong> {{ message }} </strong>
+		{% endfor %} {% endif %} {% endwith %}
+	</div>
+</div>
+
+
+<style>
+	.logged_in{
+		color:white;
+		text-align:center;
+	}
+	body {
+		margin: 0;
+	}
+
+	h1 {
+		color: white;
+		font-family: 'Roboto', sans-serif;
+
+	}
+
+	.top-menu {
+		margin-top: 0;
+		width: 100%;
+		padding-top: 2%;
+		padding-bottom: 2%;
+		display: inline-block;
+		background-color: #009CFF;
+		width: 100%;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.48);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.48);
+		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.48);
+	}
+
+	.title {
+		vertical-align: middle;
+		display: inherit;
+		text-align: left;
+		margin-left: 5%;
+		width: 50%;
+	}
+
+	.text-right {
+		width: 40%;
+		display: inherit;
+		text-align: right;
+	}
+
+	.button {
+		width: 160px;
+		height: 60px;
+		border-radius: 10px;
+		background-color: white;
+		color: #009CFF;
+		font-size: 20px;
+		border-width: 0;
+	}
+
+	.button:hover {
+		background-color: orange;
+		transition: ease-in;
+		transition-duration: .2s;
+		color: white;
+	}
+</style>
